@@ -1,4 +1,5 @@
 <?php
+// views/citas.php
 require_once __DIR__ . '/../controller/BaseController.php';
 exigirSesion();
 require_once __DIR__ . '/../controller/CitaController.php';
@@ -108,30 +109,36 @@ layoutStart('Citas Médicas');
             <?php foreach ($citas as $c): ?>
                 <tr>
                     <td><?= $c['id'] ?></td>
-                    <td><?= $c['paciente_nombre'] ?></td>
+                    <td style="font-weight: 500;"><?= $c['paciente_nombre'] ?></td>
                     <td><?= $c['odontologo_nombre'] ?></td>
                     <td><?= $c['fecha'] ?></td>
                     <td><?= $c['hora'] ?></td>
                     <td>
-                        <span style="padding: 5px 10px; border-radius: 5px; font-size: 12px; font-weight: bold; 
-                            background: <?= $c['estado'] == 'Pendiente' ? '#fff3cd' : ($c['estado'] == 'Atendida' ? '#d4edda' : '#f8d7da') ?>;
-                            color: <?= $c['estado'] == 'Pendiente' ? '#856404' : ($c['estado'] == 'Atendida' ? '#155724' : '#721c24') ?>;">
-                            <?= $c['estado'] ?>
-                        </span>
+                        <?php 
+                            $claseBadge = 'badge-pendiente';
+                            if ($c['estado'] == 'Atendida') $claseBadge = 'badge-atendida';
+                            if ($c['estado'] == 'Cancelada') $claseBadge = 'badge-cancelada';
+                        ?>
+                        <span class="badge <?= $claseBadge ?>"><?= $c['estado'] ?></span>
                     </td>
-                    <td class="actions">
-                        <a href="citas.php?editar=<?= $c['id'] ?>" class="btn" style="background:#f0ad4e;">Editar</a>
-                        <form method="POST" action="" onsubmit="return confirm('¿Seguro que deseas eliminar esta cita?');">
-                            <input type="hidden" name="accion" value="eliminar">
-                            <input type="hidden" name="id" value="<?= $c['id'] ?>">
-                            <button type="submit" class="btn danger">Eliminar</button>
-                        </form>
+                    <td>
+                        <div class="acciones-celda">
+                            <!-- Botón Editar con la clase base btn-tabla -->
+                            <a href="citas.php?editar=<?= $c['id'] ?>" class="btn-tabla btn-editar">Editar</a>
+                            
+                            <!-- Botón Eliminar con la clase base btn-tabla -->
+                            <form method="POST" action="" onsubmit="return confirm('¿Seguro que deseas eliminar esta cita?');">
+                                <input type="hidden" name="accion" value="eliminar">
+                                <input type="hidden" name="id" value="<?= $c['id'] ?>">
+                                <button type="submit" class="btn-tabla btn-eliminar">Eliminar</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>
             <?php if (empty($citas)): ?>
                 <tr>
-                    <td colspan="7" style="text-align:center;">No hay citas programadas aún.</td>
+                    <td colspan="7" style="text-align:center; padding: 30px;">No hay citas programadas aún.</td>
                 </tr>
             <?php endif; ?>
         </tbody>

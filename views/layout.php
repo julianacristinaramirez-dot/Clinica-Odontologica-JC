@@ -19,6 +19,7 @@ if (!function_exists('layoutStart')) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title><?= e($titulo) ?> - 🦷Sonrisa Perfecta🦷</title>
             <link rel="stylesheet" href="../assetes/css/style.css">
+            <link rel="stylesheet" href="../assetes/css/tablas.css">  
         </head>
         <body>
             <header class="topbar">

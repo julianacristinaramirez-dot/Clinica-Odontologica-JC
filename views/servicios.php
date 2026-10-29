@@ -76,11 +76,11 @@ layoutStart('Servicios');
                     <td><?= $s['nombre'] ?></td>
                     <td><strong>S/ <?= number_format($s['precio'], 2) ?></strong></td>
                     <td class="actions">
-                        <a href="servicios.php?editar=<?= $s['id'] ?>" class="btn" style="background:#f0ad4e;">Editar</a>
+                        <a href="servicios.php?editar=<?= $s['id'] ?>" class="btn btn-editar">Editar</a>
                         <form method="POST" action="" onsubmit="return confirm('¿Seguro que deseas eliminar este servicio?');">
                             <input type="hidden" name="accion" value="eliminar">
                             <input type="hidden" name="id" value="<?= $s['id'] ?>">
-                            <button type="submit" class="btn danger">Eliminar</button>
+                            <button type="submit" class="btn btn-eliminar">Eliminar</button>
                         </form>
                     </td>
                 </tr>

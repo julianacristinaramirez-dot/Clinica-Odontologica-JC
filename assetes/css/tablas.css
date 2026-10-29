@@ -1,0 +1,128 @@
+/* =========================================
+   ESTILOS MEJORADOS PARA TABLAS (CRUD)
+   ========================================= */
+
+.table-scroll {
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.table-scroll table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 15px;
+}
+
+.table-scroll th {
+    background-color: var(--primario);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table-scroll th:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+.table-scroll th:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+
+.table-scroll td {
+    padding: 15px;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: middle;
+    font-size: 15px;
+    color: var(--texto);
+}
+
+.table-scroll tbody tr {
+    transition: background 0.2s;
+}
+.table-scroll tbody tr:hover {
+    background-color: var(--fondo);
+}
+
+.acciones-celda {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.acciones-celda form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Ajuste para que el formulario no ocupe espacio extra */
+.acciones-celda form {
+    margin: 0;
+    padding: 0;
+    display: flex; /* Obliga al botón a comportarse igual que el enlace */
+}
+
+/* Clase base para ambos botones */
+.btn-tabla {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px; /* Ancho mínimo para que ambos midan igual */
+    height: 35px;    /* Altura fija para que se vean idénticos */
+    padding: 0 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-sizing: border-box; /* Evita que el padding haga más grande al botón */
+}
+
+/* Color para Editar */
+.btn-editar {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #ec971f;
+    transform: translateY(-2px);
+}
+
+/* Color para Eliminar */
+.btn-eliminar {
+    background-color: #ff7675;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #d63031;
+    transform: translateY(-2px);
+}
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+.badge-pendiente { background: #fff3cd; color: #856404; }
+.badge-atendida { background: #d4edda; color: #155724; }
+.badge-cancelada { background: #f8d7da; color: #721c24; }
+
+.panel.table-scroll {
+    padding: 0; /* Quita el padding del panel para que la tabla llegue a los bordes */
+    overflow: hidden; /* Corta lo que se salga de las esquinas redondeadas */
+}
+
+.panel.table-scroll h3 {
+    padding: 25px 25px 0 25px; /* Le devuelve el espacio al título */
+    border-bottom: none;
+}
+
+.table-scroll table {
+    margin-top: 20px;
+}
