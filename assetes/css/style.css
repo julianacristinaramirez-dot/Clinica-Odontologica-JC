@@ -1,38 +1,40 @@
-/*======================*/
-/*   Login - Pastel     */
-/*======================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 :root{
-    --fondo: #f7f3ea;
-    --fondo-2: #eef7f2;
-    --tarjeta: #fffaf3;
-    --primario: #b8a7e6;
-    --primario-oscuro: #826fc0;
-    --secundario: #bdebd6;
-    --acento: #ffd6ba;
-    --texto: #3f3d56;
-    --texto-suave: #6f6a80;
-    --borde: #e3d8f2;
+    --fondo: #fcf9fc; 
+    --fondo-2: #f4f0fa; 
+    --tarjeta: #ffffff;
+    --primario: #b8a7e6; 
+    --primario-oscuro: #9a85d1;
+    --secundario: #bdebd6; 
+    --secundario-oscuro: #8cd6b4;
+    --acento: #ffd6ba; 
+    --texto: #4a455e;
+    --texto-suave: #8a859c;
+    --borde: #e8e0f5;
     --blanco: #ffffff;
-    --sombra: 0 18px 35px rgba(63, 61, 86, 0.14);
+    --sombra: 0 12px 28px rgba(184, 167, 230, 0.15);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     min-height: 100vh;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--texto);
-    background:
-        radial-gradient(circle at top left, rgba(184, 167, 230, 0.35), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(189, 235, 214, 0.45), transparent 35%),
-        var(--fondo);
+    background: linear-gradient(135deg, var(--fondo) 0%, var(--fondo-2) 100%);
+    display: flex;
+    flex-direction: column;
 }
 
-.caja{
+/* ======================
+   ESTILOS DEL LOGIN
+   ====================== */
+.caja {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,92 +42,278 @@ body{
     padding: 25px;
 }
 
-.caja form{
+.caja form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: min(430px, 92%);
-    min-height: 500px;
-    padding: 35px 30px;
+    width: min(430px, 100%);
+    padding: 40px 30px;
     border: 1px solid var(--borde);
     border-radius: 28px;
-    background: rgba(255, 250, 243, 0.92);
+    background: var(--tarjeta);
     box-shadow: var(--sombra);
 }
 
-form img{
-    width: 165px;
+.caja form h2 {
+    color: var(--primario-oscuro);
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-align: center;
+}
+
+form img {
+    width: 140px;
     margin-bottom: 25px;
     filter: drop-shadow(0 8px 12px rgba(63, 61, 86, 0.10));
 }
 
-form input{
+form input {
     width: 100%;
     height: 55px;
-    font-size: 20px;
-    border: 1px solid transparent;
+    font-size: 16px;
+    border: 2px solid transparent;
     background-color: var(--fondo-2);
     color: var(--texto);
     border-radius: 14px;
     margin-bottom: 18px;
-    padding-left: 16px;
+    padding: 0 16px;
     outline: none;
     transition: 0.25s ease;
 }
 
-form input::placeholder{
-    color: var(--texto-suave);
-}
-
-form input:focus{
+form input:focus {
     border-color: var(--primario);
     background-color: var(--blanco);
     box-shadow: 0 0 0 4px rgba(184, 167, 230, 0.20);
 }
 
-form button{
+form button {
     width: 100%;
     height: 55px;
     background: linear-gradient(135deg, var(--primario), var(--primario-oscuro));
     color: var(--blanco);
     border: 0;
     border-radius: 14px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.25s ease;
+    margin-top: 10px;
 }
 
-form button:hover{
+form button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(130, 111, 192, 0.25);
+    box-shadow: 0 10px 20px rgba(154, 133, 209, 0.3);
 }
 
-form button:active{
-    transform: translateY(0);
+/* ======================
+   ESTILOS DEL HOME (LAYOUT)
+   ====================== */
+.topbar {
+    background: var(--tarjeta);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
-/* Medias para login */
-@media (max-width: 976px){
-    .caja form{
-        width: min(520px, 80%);
-    }
+.topbar-nivel1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%;
+    background: linear-gradient(90deg, var(--primario), var(--primario-oscuro));
+    color: white;
 }
 
-@media (max-width: 760px){
-    .caja form{
-        width: 94%;
-        padding: 28px 22px;
-    }
+.topbar-nivel1 h1 {
+    font-size: 22px;
+    font-weight: 500;
+}
 
-    form img{
-        width: 135px;
-    }
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
 
-    form input,
-    form button{
-        height: 50px;
-        font-size: 18px;
+.btn-salir {
+    background: var(--acento);
+    color: var(--texto);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-salir:hover {
+    background: #ffc49e;
+}
+
+.topbar-nivel2 {
+    padding: 0 4%;
+    background: var(--tarjeta);
+}
+
+.nav-horizontal {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+}
+
+.nav-horizontal a {
+    padding: 15px 0;
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-horizontal a:hover, .nav-horizontal a.active {
+    color: var(--primario-oscuro);
+    border-bottom-color: var(--primario);
+}
+
+.main-container {
+    display: flex;
+    gap: 25px;
+    padding: 30px 4%;
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+.contenido-principal {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Menú Vertical Derecho */
+.sidebar-derecha {
+    width: 260px;
+    background: var(--tarjeta);
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    align-self: flex-start;
+}
+
+.sidebar-derecha h3 {
+    color: var(--primario-oscuro);
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid var(--fondo-2);
+    padding-bottom: 10px;
+}
+
+.sidebar-derecha ul {
+    list-style: none;
+}
+
+.sidebar-derecha li {
+    margin-bottom: 8px;
+}
+
+.sidebar-derecha a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: var(--texto);
+    background: var(--fondo);
+    border-radius: 10px;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.sidebar-derecha a:hover {
+    background: var(--fondo-2);
+    color: var(--primario-oscuro);
+    transform: translateX(5px);
+}
+
+/* Tarjetas Informativas */
+.titulo-panel {
+    font-size: 28px;
+    color: var(--primario-oscuro);
+    margin-bottom: 5px;
+}
+
+.subtitulo-panel {
+    color: var(--texto-suave);
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--tarjeta);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--texto);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    border: 1px solid var(--borde);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra);
+    border-color: var(--primario);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--borde);
+}
+
+.card div {
+    padding: 20px;
+}
+
+.card h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: var(--primario-oscuro);
+}
+
+.card span {
+    color: var(--secundario-oscuro);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--tarjeta);
+    color: var(--texto-suave);
+    border-top: 1px solid var(--borde);
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .sidebar-derecha {
+        width: 100%;
+        order: -1; /* Pone el menú arriba en móviles */
+    }
+    .topbar-nivel1 {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
 }
