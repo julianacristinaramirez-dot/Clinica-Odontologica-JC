@@ -24,7 +24,7 @@ class LoginController {
                 $_SESSION['rol'] = $usuario['rol'];
 
                 // Redirigir a la página principal
-                header("Location: views/home.php");
+                header("Location: ../views/home.php");
                 exit;
             } else {
                 return "Correo o contraseña incorrectos.";
